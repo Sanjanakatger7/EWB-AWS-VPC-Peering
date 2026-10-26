@@ -1,0 +1,77 @@
+EWB AWS VPC PEERING — RESOURCE INVENTORY
+
+AWS Region: Asia Pacific (Mumbai) — ap-south-1
+
+1. VPC A
+   Name: ewb-vpc-a
+   VPC ID:vpc-036668c878501fcab
+   CIDR: 10.10.0.0/16
+
+2. VPC B
+   Name: ewb-vpc-b
+   VPC ID: vpc-07680626b64386088
+   CIDR: 10.20.0.0/16
+
+3. Subnets
+   ewb-a-public
+   Subnet ID:
+   CIDR: 10.10.1.0/24
+
+ewb-a-private
+Subnet ID:
+CIDR: 10.10.2.0/24
+
+ewb-b-private
+Subnet ID:
+CIDR: 10.20.1.0/24
+
+4. EC2 Instances
+
+Bastion — ewb-bastion
+Instance ID:i-0be13e89eb510e1f1
+Public IPv4: 13.207.40.124
+Private IPv4:
+
+App-A — ewb-app-a
+Instance ID:i-025cd251f13bd4286
+Private IPv4: 10.10.2.10
+
+App-B — ewb-app-b
+Instance ID:i-0753b76acf936d7ac
+Private IPv4: 10.20.1.10
+
+5. VPC Peering
+   Name: ewb-a-b-peer
+   Peering Connection ID: pcx-029d206e3eaab2d89
+   Final Status: Active before cleanup
+
+6. Internet Gateway
+   Name: ewb-igw-a
+   Internet Gateway ID: igw-015c657761a276b3f
+
+7. Route Tables
+   ewb-rt-a-public — Route Table ID: rtb-0c78e1d7c268a9211
+   Associated subnet: ewb-a-public
+
+ewb-rt-a-private — Route Table ID: rtb-06a8df95bc85ac22d
+Associated subnet: ewb-a-private
+
+ewb-rt-b-private — Route Table ID: rtb-0d6146a003fafcad4
+Associated subnet: ewb-b-private
+
+8. Security Groups
+   ewb-sg-bastion — Security Group ID: sg-07236205dc0bdb555
+   ewb-sg-app-a — Security Group ID: sg-09ac255ab63a13ffe
+   ewb-sg-app-b — Security Group ID: sg-00ac073f62c021b0a
+
+9. Cleanup
+   EC2 instances: Terminated
+   EBS volumes: No leftover volumes found
+   Snapshots: No leftover snapshots found
+   Elastic IPs: None found
+   Peering connection: Deleted
+   Custom route tables: Deleted
+   Subnets: Deleted
+   Security groups: Deleted
+   Internet Gateway: Deleted
+   VPCs: Deleted
